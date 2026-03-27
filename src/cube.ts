@@ -2,7 +2,7 @@ import {Dimensions} from 'react-native';
 
 const {width: SCREEN_WIDTH} = Dimensions.get('window');
 
-export const GRID = 15;
+export const GRID = 18;
 export const CUBE_VIEW_SIZE = SCREEN_WIDTH - 40;
 export const PARTICLE_SIZE = 7;
 
@@ -70,7 +70,7 @@ function getFace(
 export function buildParticles(): Particle[] {
   const particles: Particle[] = [];
   const half = (GRID - 1) / 2;
-  const spacing = 18;
+  const spacing = 10;
   const yAngle = 0.62; // ~35 degrees
   const xAngle = 0.42; // ~24 degrees
   const fov = 400;
