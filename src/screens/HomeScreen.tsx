@@ -3,6 +3,7 @@ import {StyleSheet, View, Text, Pressable} from 'react-native';
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import type {RootStackParamList} from '../navigation';
 import {useParticles} from '../ParticleContext';
+import MetallicView from '../common/MetallicView';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
@@ -26,18 +27,18 @@ export default function HomeScreen({navigation}: Props) {
         <Text style={styles.user}>John</Text>
       </View>
       <View style={styles.cards}>
-        <View style={styles.card}>
+        <MetallicView style={styles.card} borderRadius={16}>
           <Text style={styles.cardTitle}>Dashboard</Text>
           <Text style={styles.cardSub}>3 new notifications</Text>
-        </View>
-        <View style={styles.card}>
+        </MetallicView>
+        <MetallicView style={styles.card} borderRadius={16}>
           <Text style={styles.cardTitle}>Projects</Text>
           <Text style={styles.cardSub}>12 active</Text>
-        </View>
-        <View style={styles.card}>
+        </MetallicView>
+        <MetallicView style={styles.card} borderRadius={16}>
           <Text style={styles.cardTitle}>Messages</Text>
           <Text style={styles.cardSub}>5 unread</Text>
-        </View>
+        </MetallicView>
       </View>
     </View>
   );
@@ -77,8 +78,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#1A1A2E',
     borderRadius: 16,
     padding: 20,
-    borderWidth: 1,
-    borderColor: '#2A2A4A',
   },
   cardTitle: {
     fontSize: 18,

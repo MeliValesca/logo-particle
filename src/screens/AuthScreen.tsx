@@ -17,6 +17,7 @@ import Animated, {
   Easing,
 } from 'react-native-reanimated';
 import {useParticles} from '../ParticleContext';
+import MetallicView from '../common/MetallicView';
 
 export default function AuthScreen() {
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
@@ -84,7 +85,7 @@ export default function AuthScreen() {
     <View style={styles.screen}>
       {showLogin && (
         <Animated.View style={[styles.loginContainer, loginStyle]}>
-          <View style={styles.loginCard}>
+          <MetallicView style={styles.loginCard}>
             <TextInput
               style={styles.input}
               placeholder="Username"
@@ -105,7 +106,7 @@ export default function AuthScreen() {
             />
             <View style={styles.loginBtnOuter}>
               <Pressable
-                style={({pressed}) => [styles.loginBtn, pressed && {marginTop: 3}]}
+                style={({pressed}) => [styles.loginBtn, pressed && {transform: [{translateY: 2}]}]}
                 onPress={handleLogin}
                 disabled={phase !== 'welcome'}>
                 {phase === 'authenticating' ? (
@@ -115,7 +116,7 @@ export default function AuthScreen() {
                 )}
               </Pressable>
             </View>
-          </View>
+          </MetallicView>
         </Animated.View>
       )}
     </View>
@@ -135,8 +136,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#1A1A2E',
     borderRadius: 20,
     padding: 24,
-    borderWidth: 1,
-    borderColor: '#2A2A4A',
   },
   input: {
     backgroundColor: '#2A2A4A',
