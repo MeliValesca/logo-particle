@@ -114,6 +114,7 @@ export default function AuthScreen() {
             <BubbleTextInput
               bottomY={usernameBottom}
               parentOffset={cardKbOffset}
+              returnDuration={120}
               wrapperStyle={styles.inputWrap}
               style={styles.input}
               placeholder="Username"
@@ -129,6 +130,7 @@ export default function AuthScreen() {
             <BubbleTextInput
               bottomY={passwordBottom}
               parentOffset={cardKbOffset}
+              returnDuration={120}
               wrapperStyle={styles.inputWrap}
               style={styles.input}
               placeholder="Password"

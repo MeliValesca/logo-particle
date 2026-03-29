@@ -2,7 +2,7 @@ export const colors = {
   /** Main dark background */
   background: '#08080F',
   /** Card / container background */
-  card: '#1C1E26',
+  card: '#252836',
   /** Input background */
   input: '#363645',
   /** Input border */
