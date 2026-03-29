@@ -88,7 +88,7 @@ export default function BubbleTextInput({
     const progress = Math.min(kbHeight.value / 100, 1);
     const parentY = parentOffset ? parentOffset.value : 0;
     const targetY = focused.value
-      ? -(kbHeight.value + keyboardGap - bottomY) - parentY
+      ? -(kbHeight.value + keyboardGap - bottomY + 10) - parentY
       : 0;
 
     return {
@@ -111,7 +111,6 @@ export default function BubbleTextInput({
           onFocus?.(e);
         }}
         onBlur={e => {
-
           onBlur?.(e);
         }}
       />

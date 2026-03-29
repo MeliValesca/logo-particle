@@ -20,7 +20,7 @@ import { useKeyboardHandler } from 'react-native-keyboard-controller';
 import { useParticles } from '../ParticleContext';
 import MetallicView from '../common/MetallicView';
 import BubbleTextInput from '../common/BubbleTextInput';
-import {colors} from '../common/colors';
+import { colors } from '../common/colors';
 
 // Calculate input positions from known layout
 // Input: paddingVertical(14)*2 + fontSize lineHeight(~20) + borderWidth(1)*2 = ~50
@@ -120,6 +120,9 @@ export default function AuthScreen() {
               placeholder="Username"
               placeholderTextColor={colors.placeholder}
               autoCapitalize="none"
+              textContentType="oneTimeCode"
+              autoComplete="off"
+              autoCorrect={false}
               threshold={50}
               keyboardAppearance="dark"
               value={username}
@@ -135,9 +138,8 @@ export default function AuthScreen() {
               style={styles.input}
               placeholder="Password"
               placeholderTextColor={colors.placeholder}
-              secureTextEntry
               keyboardAppearance="dark"
-              textContentType="none"
+              textContentType="oneTimeCode"
               autoComplete="off"
               value={password}
               onChangeText={setPassword}
@@ -162,7 +164,8 @@ export default function AuthScreen() {
             </View>
           </MetallicView>
           <Text style={styles.registerText}>
-            Don't have an account? <Text style={styles.registerLink}>Register</Text>
+            Don't have an account?{' '}
+            <Text style={styles.registerLink}>Register</Text>
           </Text>
         </Animated.View>
       )}

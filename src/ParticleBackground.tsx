@@ -10,6 +10,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import {LOGO_POINTS, type LogoPoint} from './data/logoPoints';
 import {useParticles} from './ParticleContext';
+import BootSplash from 'react-native-bootsplash';
 
 const {width: SCREEN_WIDTH, height: SCREEN_HEIGHT} = Dimensions.get('window');
 const LOGO_VIEW_SIZE = SCREEN_WIDTH - 40;
@@ -205,8 +206,9 @@ export default function ParticleBackground() {
     ],
   }));
 
-  // Splash pulsing
+  // Splash pulsing + hide boot splash
   useEffect(() => {
+    BootSplash.hide({fade: true});
     autoRef.current = setInterval(() => setWave(w => w + 1), 1200);
     return () => {
       if (autoRef.current) clearInterval(autoRef.current);
