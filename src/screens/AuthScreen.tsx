@@ -103,16 +103,18 @@ export default function AuthScreen() {
               value={password}
               onChangeText={setPassword}
             />
-            <Pressable
-              style={styles.loginBtn}
-              onPress={handleLogin}
-              disabled={phase !== 'welcome'}>
-              {phase === 'authenticating' ? (
-                <ActivityIndicator color="#FFF" size="small" />
-              ) : (
-                <Text style={styles.loginBtnText}>Log In</Text>
-              )}
-            </Pressable>
+            <View style={styles.loginBtnOuter}>
+              <Pressable
+                style={({pressed}) => [styles.loginBtn, pressed && {marginTop: 3}]}
+                onPress={handleLogin}
+                disabled={phase !== 'welcome'}>
+                {phase === 'authenticating' ? (
+                  <ActivityIndicator color="#FFF" size="small" />
+                ) : (
+                  <Text style={styles.loginBtnText}>Log In</Text>
+                )}
+              </Pressable>
+            </View>
           </View>
         </Animated.View>
       )}
@@ -133,6 +135,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#1A1A2E',
     borderRadius: 20,
     padding: 24,
+    borderWidth: 1,
+    borderColor: '#2A2A4A',
   },
   input: {
     backgroundColor: '#2A2A4A',
@@ -142,14 +146,20 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#FFFFFF',
     marginBottom: 12,
+    borderWidth: 1,
+    borderColor: '#3A3A5A',
+  },
+  loginBtnOuter: {
+    backgroundColor: '#3A4558',
+    borderRadius: 12,
+    paddingBottom: 3,
+    marginTop: 4,
   },
   loginBtn: {
     backgroundColor: '#4A5568',
-    borderRadius: 12,
-    paddingVertical: 16,
+    borderRadius: 11,
+    paddingVertical: 14,
     alignItems: 'center',
-    marginTop: 4,
-    height: 52,
     justifyContent: 'center',
   },
   loginBtnText: {
